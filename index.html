@@ -13,7 +13,7 @@
     
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #1e3a8a 0%, #312e81 50%, #1e1b4b 100%);
       min-height: 100vh;
       color: #333;
       overflow-x: hidden;
@@ -141,7 +141,7 @@
       left: 0;
       width: 100%;
       height: 5px;
-      background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.4s ease;
@@ -163,21 +163,21 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
       border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
       transition: all 0.3s ease;
+      font-size: 2.5rem;
     }
     
     .card:hover .card-icon {
-      transform: rotateY(180deg) scale(1.1);
+      transform: scale(1.1) rotate(5deg);
     }
     
     .card-icon img {
       width: 50px;
       height: 50px;
       object-fit: contain;
-      filter: brightness(0) invert(1);
     }
     
     .card h3 {
@@ -188,15 +188,27 @@
     }
     
     .card .stack {
-      display: inline-block;
-      background: linear-gradient(135deg, #667eea20, #764ba220);
-      color: #667eea;
-      padding: 0.5rem 1rem;
-      border-radius: 30px;
-      font-size: 0.9rem;
-      font-weight: 600;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
       margin-bottom: 1rem;
-      border: 1px solid #667eea40;
+    }
+    
+    .stack-tag {
+      background: linear-gradient(135deg, #dbeafe, #e0e7ff);
+      color: #1e40af;
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid #bfdbfe;
+      transition: all 0.2s ease;
+    }
+    
+    .stack-tag:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(59, 130, 246, 0.2);
     }
     
     .card p {
@@ -230,24 +242,24 @@
     }
     
     .btn-primary {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
       color: #fff;
-      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
     }
     
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
     }
     
     .btn-secondary {
       background: #fff;
-      color: #667eea;
-      border: 2px solid #667eea;
+      color: #3b82f6;
+      border: 2px solid #3b82f6;
     }
     
     .btn-secondary:hover {
-      background: #667eea;
+      background: #3b82f6;
       color: #fff;
       transform: translateY(-2px);
     }
@@ -393,10 +405,20 @@
       <!-- Project Card 1 -->
       <div class="card">
         <div class="card-icon">
-          <img src="https://raw.githubusercontent.com/makarandhinge/Video-Streaming-Web/main/Logo/video-streaming.png" alt="Project Icon">
+          🌱
         </div>
         <h3>Project One</h3>
-        <span class="stack">HTML • CSS • JavaScript</span>
+        <div class="stack">
+          <span class="stack-tag">HTML</span>
+          <span class="stack-tag">CSS</span>
+          <span class="stack-tag">JavaScript</span>
+                    <span class="stack-tag">HTML</span>
+          <span class="stack-tag">CSS</span>
+          <span class="stack-tag">JavaScript</span>
+                    <span class="stack-tag">HTML</span>
+          <span class="stack-tag">CSS</span>
+          <span class="stack-tag">JavaScript</span>
+        </div>
         <p>A beautiful and responsive web application built with modern vanilla JavaScript and CSS animations.</p>
         <div class="buttons">
           <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
@@ -407,11 +429,14 @@
       <!-- Project Card 2 -->
       <div class="card">
         <div class="card-icon">
-          <img src="https://raw.githubusercontent.com/makarandhinge/Email-Service/main/Logo/mail.png
-" alt="Project Icon">
+          📧
         </div>
         <h3>Project Two</h3>
-        <span class="stack">React • Node.js • MongoDB</span>
+        <div class="stack">
+          <span class="stack-tag">React</span>
+          <span class="stack-tag">Node.js</span>
+          <span class="stack-tag">MongoDB</span>
+        </div>
         <p>Full-stack application with real-time features and secure authentication built using the MERN stack.</p>
         <div class="buttons">
           <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
@@ -422,558 +447,14 @@
       <!-- Project Card 3 -->
       <div class="card">
         <div class="card-icon">
-          <img src="https://raw.githubusercontent.com/makarandhinge/Organic-Agri/main/Logo/organic.png" alt="Project Icon">
+          🎥
         </div>
         <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
+        <div class="stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">Django</span>
+          <span class="stack-tag">PostgreSQL</span>
         </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
-        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
-        <div class="buttons">
-          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
-          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
-        </div>
-      </div>
-
-            <div class="card">
-        <div class="card-icon">
-          <img src="https://via.placeholder.com/50" alt="Project Icon">
-        </div>
-        <h3>Project Three</h3>
-        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
         <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
         <div class="buttons">
           <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
