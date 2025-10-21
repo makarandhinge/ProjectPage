@@ -5,143 +5,455 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Project Library</title>
   <style>
-    /* ===== Global Styles ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
     body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f5f5;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
       color: #333;
-      scroll-behavior: smooth;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
     }
-
+    
+    /* Animated background particles */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+    
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      animation: float 15s infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+    }
+    
+    /* Header */
     header {
+      position: relative;
       text-align: center;
-      padding: 3rem 1rem 1rem 1rem;
-      background-color: #1e1e1e;
-      color: #fff;
+      padding: 5rem 2rem 3rem;
+      z-index: 1;
     }
-
+    
     header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      animation: fadeInDown 1s ease;
     }
-
-    /* ===== Project Grid ===== */
+    
+    header p {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.9);
+      animation: fadeInUp 1s ease 0.2s backwards;
+    }
+    
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Projects Section */
+    .container {
+      position: relative;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem 2rem 4rem;
+      min-height: calc(100vh - 400px);
+      z-index: 1;
+    }
+    
     .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      animation: fadeIn 1s ease 0.4s backwards;
     }
-
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    /* Project Cards */
     .card {
-      background-color: #fff;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
       overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.3);
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 1.5rem 1rem;
       text-align: center;
+      width: 100%;
     }
-
+    
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+    
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
     }
-
-    .card img {
+    
+    .card-icon {
       width: 80px;
       height: 80px;
-      object-fit: contain;
-      margin-bottom: 1rem;
-    }
-
-    .card h3 {
-      margin: 0.5rem 0;
-      font-size: 1.3rem;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      color: #555;
-      margin: 0.5rem 0 1rem 0;
-    }
-
-    .card .buttons {
+      margin: 0 auto 1.5rem;
       display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
+      align-items: center;
       justify-content: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+      transition: all 0.3s ease;
     }
-
-    .card .buttons a {
-      text-decoration: none;
-      color: #fff;
-      background-color: #1e90ff;
+    
+    .card:hover .card-icon {
+      transform: rotateY(180deg) scale(1.1);
+    }
+    
+    .card-icon img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+    
+    .card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+      color: #2d3748;
+      font-weight: 700;
+    }
+    
+    .card .stack {
+      display: inline-block;
+      background: linear-gradient(135deg, #667eea20, #764ba220);
+      color: #667eea;
       padding: 0.5rem 1rem;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
+      border-radius: 30px;
       font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      border: 1px solid #667eea40;
     }
-
-    .card .buttons a:hover {
-      background-color: #0d6efd;
+    
+    .card p {
+      color: #718096;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      flex-grow: 1;
     }
-
-    /* ===== Footer ===== */
+    
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      width: 100%;
+      margin-top: auto;
+    }
+    
+    .btn {
+      flex: 1;
+      min-width: 120px;
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+    }
+    
+    .btn-secondary {
+      background: #fff;
+      color: #667eea;
+      border: 2px solid #667eea;
+    }
+    
+    .btn-secondary:hover {
+      background: #667eea;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    
+    /* Footer */
     footer {
       text-align: center;
       padding: 2rem;
-      background-color: #1e1e1e;
-      color: #fff;
-      margin-top: 2rem;
+      color: rgba(255, 255, 255, 0.9);
+      position: relative;
+      z-index: 1;
+      margin-top: auto;
+    }
+    
+    footer p {
+      font-size: 1rem;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Responsive */
+    @media (max-width: 640px) {
+      .projects {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0;
+      }
+      
+      .card {
+        max-width: 100%;
+        margin: 0;
+        padding: 1.5rem;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      header p {
+        font-size: 1rem;
+      }
+      
+      header {
+        padding: 2.5rem 1rem 2rem;
+      }
+      
+      .container {
+        padding: 1rem 1rem 2rem;
+        min-height: auto;
+      }
+      
+      .card-icon {
+        width: 70px;
+        height: 70px;
+      }
+      
+      .card-icon img {
+        width: 40px;
+        height: 40px;
+      }
+      
+      .card h3 {
+        font-size: 1.4rem;
+      }
+      
+      .buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      
+      .btn {
+        width: 100%;
+        padding: 0.9rem 1.5rem;
+      }
+      
+      footer {
+        padding: 1.5rem 1rem;
+      }
+      
+      footer p {
+        font-size: 0.9rem;
+      }
+    }
+    
+    @media (min-width: 641px) and (max-width: 1024px) {
+      .projects {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+      
+      .card {
+        max-width: 100%;
+      }
+      
+      .container {
+        padding: 1.5rem;
+      }
+      
+      header {
+        padding: 4rem 2rem 2.5rem;
+      }
+    }
+    
+    @media (min-width: 1025px) and (max-width: 1440px) {
+      .projects {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+      
+      .card {
+        max-width: 100%;
+      }
+    }
+    
+    @media (min-width: 1441px) {
+      .projects {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+      }
+      
+      .card {
+        max-width: 100%;
+      }
+      
+      .container {
+        max-width: 1600px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Animated Background -->
+  <div class="particles" id="particles"></div>
 
   <!-- Header -->
   <header>
     <h1>My Project Library</h1>
+    <p>Explore my latest work and creative projects</p>
   </header>
 
-  <!-- Projects Grid -->
-  <section class="projects">
-
-    <!-- Project Card Example -->
-    <div class="card">
-      <img src="https://via.placeholder.com/80" alt="Project Logo">
-      <h3>Project One</h3>
-      <p>Stack: HTML, CSS, JS</p>
-      <div class="buttons">
-        <a href="#" target="_blank">GitHub</a>
-        <a href="#" target="_blank">Live Demo</a>
+  <!-- Projects Container -->
+  <div class="container">
+    <section class="projects">
+      <!-- Project Card 1 -->
+      <div class="card">
+        <div class="card-icon">
+          <img src="https://via.placeholder.com/50" alt="Project Icon">
+        </div>
+        <h3>Project One</h3>
+        <span class="stack">HTML • CSS • JavaScript</span>
+        <p>A beautiful and responsive web application built with modern vanilla JavaScript and CSS animations.</p>
+        <div class="buttons">
+          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
+          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
+        </div>
       </div>
-    </div>
 
-    <div class="card">
-      <img src="https://via.placeholder.com/80" alt="Project Logo">
-      <h3>Project Two</h3>
-      <p>Stack: React, Node.js</p>
-      <div class="buttons">
-        <a href="#" target="_blank">GitHub</a>
-        <a href="#" target="_blank">Live Demo</a>
+      <!-- Project Card 2 -->
+      <div class="card">
+        <div class="card-icon">
+          <img src="https://via.placeholder.com/50" alt="Project Icon">
+        </div>
+        <h3>Project Two</h3>
+        <span class="stack">React • Node.js • MongoDB</span>
+        <p>Full-stack application with real-time features and secure authentication built using the MERN stack.</p>
+        <div class="buttons">
+          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
+          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
+        </div>
       </div>
-    </div>
 
-    <!-- Add more cards here easily -->
+      <!-- Project Card 3 -->
+      <div class="card">
+        <div class="card-icon">
+          <img src="https://via.placeholder.com/50" alt="Project Icon">
+        </div>
+        <h3>Project Three</h3>
+        <span class="stack">Python • Django • PostgreSQL • Python • Django • PostgreSQL • Python • Django • PostgreSQL</span>
+        <p>Scalable backend API with comprehensive documentation and advanced data processing capabilities.</p>
+        <div class="buttons">
+          <a href="#" class="btn btn-primary" target="_blank">GitHub Repo</a>
+          <a href="#" class="btn btn-secondary" target="_blank">Live Demo</a>
+        </div>
+      </div>
 
-  </section>
+      <!-- Add more project cards as needed -->
+    </section>
+  </div>
 
   <!-- Footer -->
   <footer>
-    &copy; 2025 Makarand Hinge
+    <p>&copy; 2025 Makarand Hinge • Built with passion</p>
   </footer>
 
+  <script>
+    // Create animated particles
+    const particlesContainer = document.getElementById('particles');
+    const particleCount = 50;
+    
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.animationDelay = Math.random() * 15 + 's';
+      particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+      particlesContainer.appendChild(particle);
+    }
+  </script>
 </body>
 </html>
